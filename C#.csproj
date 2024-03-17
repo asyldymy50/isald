@@ -1,0 +1,36 @@
+using System;
+class LeftFactoring
+{
+    static void Main()
+    {
+        string[] productions={"abc" ,"ade" ,"abf"};
+        string commonprefix=FindCommonprefix(productions);
+        Console.WriteLine("commonprefix:+ commonprefix");
+    }
+    static string FindCommonprefix(string[]productions)
+    {
+        string Prefix="";
+        if(productions.Length > 0)
+        {
+            for(int i=0;i<productions[0].Length;i++)
+            {
+                char currentChar =productions[0][i];
+                bool isCommon = true;
+                for(int j=1;j<productions.Length;j++)
+                {
+                    if(productions[j].Length<=i || productions[j][i]!=currentChar)
+                    {
+                        isCommon= false;
+                        break;
+                    }
+                }
+                if(!=isCommon)
+                {
+                    break;
+                }
+                Prefix +=currentChar;
+            }
+        }
+        return Prefix;
+    }
+}
